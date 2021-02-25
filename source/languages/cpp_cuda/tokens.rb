@@ -1,10 +1,10 @@
 require_relative '../../textmate_tools.rb'
 
-# 
+#
 # C++ specific tokens
-# 
-    # TODO: 
-        # finish the specifiers https://en.cppreference.com/w/cpp/language/declarations 
+#
+    # TODO:
+        # finish the specifiers https://en.cppreference.com/w/cpp/language/declarations
         # https://en.cppreference.com/w/cpp/language/declarations
         # look at https://en.cppreference.com/w/cpp/language/function to implement better member function syntax
 
@@ -187,6 +187,55 @@ tokens = [
     { representation: "uintmax_t"            , name: "uintmax_t"            , isType: true },
     { representation: "uintmax_t"            , name: "uintmax_t"            , isType: true },
     { representation: "uintmax_t"            , name: "uintmax_t"            , isType: true },
+    { representation: "char1"                , name: "char1"                , isType: true },
+    { representation: "char2"                , name: "char2"                , isType: true },
+    { representation: "char3"                , name: "char3"                , isType: true },
+    { representation: "char4"                , name: "char4"                , isType: true },
+    { representation: "uchar1"               , name: "uchar1"               , isType: true },
+    { representation: "uchar2"               , name: "uchar2"               , isType: true },
+    { representation: "uchar3"               , name: "uchar3"               , isType: true },
+    { representation: "uchar4"               , name: "uchar4"               , isType: true },
+    { representation: "short1"               , name: "short1"               , isType: true },
+    { representation: "short2"               , name: "short2"               , isType: true },
+    { representation: "short3"               , name: "short3"               , isType: true },
+    { representation: "short4"               , name: "short4"               , isType: true },
+    { representation: "ushort1"              , name: "ushort1"              , isType: true },
+    { representation: "ushort2"              , name: "ushort2"              , isType: true },
+    { representation: "ushort3"              , name: "ushort3"              , isType: true },
+    { representation: "ushort4"              , name: "ushort4"              , isType: true },
+    { representation: "int1"                 , name: "int1"                 , isType: true },
+    { representation: "int2"                 , name: "int2"                 , isType: true },
+    { representation: "int3"                 , name: "int3"                 , isType: true },
+    { representation: "int4"                 , name: "int4"                 , isType: true },
+    { representation: "uint1"                , name: "uint1"                , isType: true },
+    { representation: "uint2"                , name: "uint2"                , isType: true },
+    { representation: "uint3"                , name: "uint3"                , isType: true },
+    { representation: "uint4"                , name: "uint4"                , isType: true },
+    { representation: "long1"                , name: "long1"                , isType: true },
+    { representation: "long2"                , name: "long2"                , isType: true },
+    { representation: "long3"                , name: "long3"                , isType: true },
+    { representation: "ulong4"               , name: "ulong4"               , isType: true },
+    { representation: "ulong1"               , name: "ulong1"               , isType: true },
+    { representation: "ulong2"               , name: "ulong2"               , isType: true },
+    { representation: "ulong3"               , name: "ulong3"               , isType: true },
+    { representation: "ulong4"               , name: "ulong4"               , isType: true },
+    { representation: "longlong1"            , name: "longlong1"            , isType: true },
+    { representation: "longlong2"            , name: "longlong2"            , isType: true },
+    { representation: "longlong3"            , name: "longlong3"            , isType: true },
+    { representation: "longlong4"            , name: "longlong4"            , isType: true },
+    { representation: "ulonglong1"           , name: "ulonglong1"           , isType: true },
+    { representation: "ulonglong2"           , name: "ulonglong2"           , isType: true },
+    { representation: "ulonglong3"           , name: "ulonglong3"           , isType: true },
+    { representation: "ulonglong4"           , name: "ulonglong4"           , isType: true },
+    { representation: "float1"               , name: "float1"               , isType: true },
+    { representation: "float2"               , name: "float2"               , isType: true },
+    { representation: "float3"               , name: "float3"               , isType: true },
+    { representation: "float4"               , name: "float4"               , isType: true },
+    { representation: "double1"              , name: "double1"              , isType: true },
+    { representation: "double2"              , name: "double2"              , isType: true },
+    { representation: "double3"              , name: "double3"              , isType: true },
+    { representation: "double4"              , name: "double4"              , isType: true },
+    { representation: "dim3"                 , name: "dim3"                 , isType: true },
     # literals
     { representation: "NULL"                 , name: "NULL"             , isLiteral: true },
     { representation: "true"                 , name: "true"             , isLiteral: true },
@@ -197,12 +246,21 @@ tokens = [
     { representation: "struct"               , name: "struct"          , isTypeCreator: true},
     { representation: "union"                , name: "union"           , isTypeCreator: true},
     { representation: "enum"                 , name: "enum"            , isTypeCreator: true},
-    # storage specifiers https://en.cppreference.com/w/cpp/language/declarations 
+    # storage specifiers https://en.cppreference.com/w/cpp/language/declarations
     { representation: "const"                , name: "const"            , isSpecifier: true, isStorageSpecifier: true },
     { representation: "static"               , name: "static"           , isSpecifier: true, isStorageSpecifier: true },
     { representation: "volatile"             , name: "volatile"         , isSpecifier: true, isStorageSpecifier: true },
     { representation: "register"             , name: "register"         , isSpecifier: true, isStorageSpecifier: true },
     { representation: "restrict"             , name: "restrict"         , isSpecifier: true, isStorageSpecifier: true },
+    # __device__ is also a function specifier.
+    #  - Do I need this entry?
+    #  - Should it have a diffrent name?
+    #  - Is isStorageSpecifier vs isFunctionSpecifier enough to differentiate them?
+    #{ representation: "__device__"           , name: "__device__"       , isSpecifier: true, isStorageSpecifier: true },
+    { representation: "__constant__"         , name: "__constant__"     , isSpecifier: true, isStorageSpecifier: true },
+    { representation: "__shared__"           , name: "__shared__"       , isSpecifier: true, isStorageSpecifier: true },
+    { representation: "__managed__"          , name: "__managed__"      , isSpecifier: true, isStorageSpecifier: true },
+    { representation: "__restrict__"         , name: "__restrict__"     , isSpecifier: true, isStorageSpecifier: true },
     { representation: "extern"               , name: "extern"           , isSpecifier: true, isStorageSpecifier: true, isClassSpecifier: true },
     # function specifiers/qualifiers
     { representation: "inline"               , name: "inline"           , isSpecifier: true , isFunctionSpecifier: true},
@@ -210,6 +268,11 @@ tokens = [
     { representation: "mutable"              , name: "mutable"          , isSpecifier: true , isFunctionSpecifier: true},
     { representation: "friend"               , name: "friend"           , isSpecifier: true , isFunctionSpecifier: true},
     { representation: "explicit"             , name: "explicit"         , isSpecifier: true , isFunctionSpecifier: true},
+    { representation: "__global__"           , name: "__global__"       , isSpecifier: true , isFunctionSpecifier: true},
+    { representation: "__device__"           , name: "__device__"       , isSpecifier: true , isFunctionSpecifier: true},
+    { representation: "__host__"             , name: "__host__"         , isSpecifier: true , isFunctionSpecifier: true},
+    { representation: "__noinline__"         , name: "__noinline__"     , isSpecifier: true , isFunctionSpecifier: true},
+    { representation: "__forceinline__"      , name: "__forceinline__"  , isSpecifier: true , isFunctionSpecifier: true},
     { representation: "virtual"              , name: "virtual"          , isSpecifier: true , isFunctionSpecifier: true, isInheritanceSpecifier: true },
     { representation: "final"                , name: "final"            , functionQualifier: true, canAppearAfterParametersBeforeBody: true , isValidFunctionName: true, isClassInheritenceSpecifier: true},
     { representation: "override"             , name: "override"         , functionQualifier: true, canAppearAfterParametersBeforeBody: true , isValidFunctionName: true, isClassInheritenceSpecifier: true},
@@ -244,24 +307,30 @@ tokens = [
     { representation: "defined"               , name: "defined"                , isPreprocessorDirective: true },
     { representation: "__has_include"         , name: "__has_include"          , isPreprocessorDirective: true },
     { representation: "__has_cpp_attribute"   , name: "__has_cpp_attribute"    , isPreprocessorDirective: true },
+    # CUDA Built-in Variables
+    { representation: "gridDim"               , name: "gridDim"                , isVariable: true, isPrimitive: true },
+    { representation: "blockIdx"              , name: "blockIdx"               , isVariable: true, isPrimitive: true },
+    { representation: "blockDim"              , name: "blockDim"               , isVariable: true, isPrimitive: true },
+    { representation: "threadIdx"             , name: "threadIdx"              , isVariable: true, isPrimitive: true },
+    { representation: "warpSize"              , name: "warpSize"               , isVariable: true, isPrimitive: true },
 
-    # 
+    #
     # misc
-    # 
+    #
     # https://en.cppreference.com/w/cpp/keyword
     { representation: "this"            , name: "this"          },
     { representation: "template"        , name: "template"      },
     { representation: "namespace"       , name: "namespace"     },
     { representation: "using"           , name: "using"         },
     { representation: "operator"        , name: "operator"      },
-    # 
+    #
     { representation: "typedef"         , name: "typedef"       , isCurrentlyAMiscKeyword: true },
     { representation: "decltype"        , name: "decltype"      , isSpecifier: true,  isFunctionLike: true },
     { representation: "typename"        , name: "typename"      },
-    # 
+    #
     { representation: "asm"                        , name: "asm"                        },
     { representation: "__asm__"                    , name: "__asm__"                    },
-    # 
+    #
     { representation: "concept"                    , name: "concept"                    , isCurrentlyAMiscKeyword: true },
     { representation: "requires"                   , name: "requires"                   , isCurrentlyAMiscKeyword: true },
     { representation: "export"                     , name: "export"                     , isCurrentlyAMiscKeyword: true },
@@ -276,7 +345,7 @@ tokens = [
     { representation: "module"                     , name: "module"                     , isCurrentlyAMiscKeyword: true },
     { representation: "reflexpr"                   , name: "reflexpr"                   },
     { representation: "synchronized"               , name: "synchronized"               },
-    # 
+    #
     { representation: "audit"                      , name: "audit"                      , isSpecialIdentifier: true , isValidFunctionName: true},
     { representation: "axiom"                      , name: "axiom"                      , isSpecialIdentifier: true , isValidFunctionName: true},
     { representation: "transaction_safe"           , name: "transaction_safe"           , isSpecialIdentifier: true , isValidFunctionName: true},
@@ -285,7 +354,7 @@ tokens = [
 
 
 
-@cpp_tokens = TokenHelper.new tokens, for_each_token: ->(each) do 
+@cpp_tokens = TokenHelper.new tokens, for_each_token: ->(each) do
     # isSymbol, isWordish
     if each[:representation] =~ /[a-zA-Z0-9_]/
         each[:isWordish] = true
@@ -296,7 +365,7 @@ tokens = [
     if each[:representation] =~ /\A[a-zA-Z_][a-zA-Z0-9_]*\z/
         each[:isWord] = true
     end
-    
+
     if each[:isTypeSpecifier] or each[:isStorageSpecifier]
         each[:isPossibleStorageSpecifier] = true
     end
@@ -321,7 +390,7 @@ end
     { representation: "FILE"                       , name: "FILE"                       , belongsToStdio: true , isType: true},
     { representation: "fpos_t"                     , name: "fpos_t"                     , belongsToStdio: true , isType: true},
     { representation: "size_t"                     , name: "size_t"                     , belongsToStdio: true , isType: true},
-    
+
     # pthread types
     # TODO: I'm not sure if pthread is actually a support type or if it is part of the language spec, I'd assume support
     { representation: "pthread_t"            , name: "pthread_t"            , isType: true , isPthreadType: true },

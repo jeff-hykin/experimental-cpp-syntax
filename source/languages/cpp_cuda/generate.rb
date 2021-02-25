@@ -38,16 +38,8 @@ grammar = Grammar.new(
     name: "C++ CUDA",
     scope_name: "source.cpp",
     fileTypes: [
-		"cc",
-		"cpp",
-		"cp",
-		"cxx",
-		"c++",
-		"C",
-		"h",
-		"hh",
-		"hpp",
-		"h++"
+        "cu",
+        "cuh"
     ],
     version: "",
     information_for_contributors: [

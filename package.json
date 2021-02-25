@@ -47,7 +47,7 @@
             {
                 "id": "cpp_cuda",
                 "extensions": [
-                    "cc",
+                    "cu",
                     "cpp",
                     "cp",
                     "cxx",

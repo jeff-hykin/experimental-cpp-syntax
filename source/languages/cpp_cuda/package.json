@@ -28,16 +28,12 @@
     "keywords": [
         "C++",
         "cpp",
-        "c",
-        "objective-c",
-        "objective-cpp",
-        "objective-c++",
         "syntax",
         "textmate",
         "highlighting",
         "coloring",
         "color",
-        "cuda"
+        "cuda-cpp"
     ],
     "engines": {
         "vscode": "^1.0.0"
@@ -51,16 +47,8 @@
             {
                 "id": "cpp_cuda",
                 "extensions": [
-                    "cc",
-                    "cpp",
-                    "cp",
-                    "cxx",
-                    "c++",
-                    "C",
-                    "h",
-                    "hh",
-                    "hpp",
-                    "h++"
+                    "cu",
+                    "cuh"
                 ],
                 "configuration": "./source/languages/cpp_cuda/language_configuration.json"
             }
