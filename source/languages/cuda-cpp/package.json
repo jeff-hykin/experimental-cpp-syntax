@@ -45,30 +45,30 @@
     "contributes": {
         "languages": [
             {
-                "id": "cpp_cuda",
+                "id": "cuda-cpp",
                 "extensions": [
                     "cu",
                     "cuh"
                 ],
-                "configuration": "./source/languages/cpp_cuda/language_configuration.json"
+                "configuration": "./source/languages/cuda-cpp/language_configuration.json"
             }
         ],
         "grammars": [
             {
-                "language": "cpp_cuda",
+                "language": "cuda-cpp",
                 "scopeName": "source.cpp.embedded.macro",
-                "path": "./syntaxes/cpp_cuda.embedded.macro.tmLanguage.json",
+                "path": "./syntaxes/cuda-cpp.embedded.macro.tmLanguage.json",
                 "embeddedLanguages": {
                     "meta.embedded.assembly.cpp": "asm"
                 }
             },
             {
-                "language": "cpp_cuda",
+                "language": "cuda-cpp",
                 "scopeName": "source.cpp",
-                "path": "./syntaxes/cpp_cuda.tmLanguage.json",
+                "path": "./syntaxes/cuda-cpp.tmLanguage.json",
                 "embeddedLanguages": {
                     "meta.embedded.assembly.cpp": "asm",
-                    "meta.preprocessor.macro.contents": "cpp_cuda"
+                    "meta.preprocessor.macro.contents": "cuda-cpp"
                 }
             }
         ]
