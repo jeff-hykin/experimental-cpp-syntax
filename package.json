@@ -50,6 +50,9 @@
                     "cu",
                     "cuh"
                 ],
+                "aliases": [
+                    "CUDA C++"
+                ],
                 "configuration": "./source/languages/cuda-cpp/language_configuration.json"
             }
         ],
@@ -81,7 +84,7 @@
             },
             {
                 "language": "cuda-cpp",
-                "scopeName": "source.cpp.embedded.macro",
+                "scopeName": "source.cuda-cpp.embedded.macro",
                 "path": "./syntaxes/cuda-cpp.embedded.macro.tmLanguage.json",
                 "embeddedLanguages": {
                     "meta.embedded.assembly.cpp": "asm"
@@ -89,7 +92,7 @@
             },
             {
                 "language": "cuda-cpp",
-                "scopeName": "source.cpp",
+                "scopeName": "source.cuda-cpp",
                 "path": "./syntaxes/cuda-cpp.tmLanguage.json",
                 "embeddedLanguages": {
                     "meta.embedded.assembly.cpp": "asm",

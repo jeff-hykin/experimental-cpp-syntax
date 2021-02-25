@@ -35,8 +35,8 @@ end
     # switch to punctuation.accessor from punctuation.seperator.dot-access
 
 grammar = Grammar.new(
-    name: "C++ CUDA",
-    scope_name: "source.cpp",
+    name: "CUDA C++",
+    scope_name: "source.cuda-cpp",
     fileTypes: [
         "cu",
         "cuh"
