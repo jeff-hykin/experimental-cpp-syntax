@@ -2575,7 +2575,7 @@ grammar = Grammar.new(
 #
 # Save
 #
-name = "cpp_cuda"
+name = "cuda-cpp"
 if $PROGRAM_NAME == __FILE__
     # this file is imported by the c grammar, dont generate if it was not directly called
     grammar.save_to(
