@@ -35,19 +35,11 @@ end
     # switch to punctuation.accessor from punctuation.seperator.dot-access
 
 grammar = Grammar.new(
-    name: "C++ CUDA",
-    scope_name: "source.cpp",
+    name: "CUDA C++",
+    scope_name: "source.cuda-cpp",
     fileTypes: [
-		"cc",
-		"cpp",
-		"cp",
-		"cxx",
-		"c++",
-		"C",
-		"h",
-		"hh",
-		"hpp",
-		"h++"
+        "cu",
+        "cuh"
     ],
     version: "",
     information_for_contributors: [
@@ -2583,7 +2575,7 @@ grammar = Grammar.new(
 #
 # Save
 #
-name = "cpp_cuda"
+name = "cuda-cpp"
 if $PROGRAM_NAME == __FILE__
     # this file is imported by the c grammar, dont generate if it was not directly called
     grammar.save_to(
